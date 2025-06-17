@@ -25,7 +25,11 @@ def start_camera_loop():
 
         plate_text = detect_plate_and_read_text(frame)
 
-
+#TODO: treba da proveri dali ja ima vo baza
+        # ako ja ima da pravi nesto i
+        # da zapise prisustvo vo drug model
+        # so ova https://www.w3schools.com/nodejs/nodejs_raspberrypi_led_pushbutton.asp
+        # ce napravime da dava signal ili semafor crveno i zeleno ja ce sredam za ova
         if plate_text and len(plate_text) > 4:
             print("Табличка:", plate_text)
 
@@ -41,7 +45,7 @@ def start_camera_loop():
 
 
 
-        time.sleep(3)
+        time.sleep(3)# ovde menuvas kolku brzo da fati slika
 
 
 
