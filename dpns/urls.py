@@ -22,5 +22,5 @@ import Aplication.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('start-camera/', Aplication.views.start_camera, name='start_camera'),
-
+    path('', Aplication.views.index, name='index'),
 ]

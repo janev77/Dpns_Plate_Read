@@ -1,5 +1,4 @@
 from threading import Event
-from django.utils import timezone
 import time
 
 from sympy import false

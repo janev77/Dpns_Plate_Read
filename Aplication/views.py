@@ -10,3 +10,6 @@ def start_camera(request):
     thread = threading.Thread(target=start_camera_loop)
     thread.start()
     return HttpResponse("Камерата е стартувана. Затвори прозорецот со 'q'.")
+
+def index(request):
+    return HttpResponse("zdravo")
