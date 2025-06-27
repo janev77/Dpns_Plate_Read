@@ -12,4 +12,4 @@ def start_camera(request):
     return HttpResponse("Камерата е стартувана. Затвори прозорецот со 'q'.")
 
 def index(request):
-    return HttpResponse("zdravo")
+    return render(request,'index.html')

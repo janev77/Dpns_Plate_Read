@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>Систем за Евиденција на Таблички</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'bootstrap-5.3.7-dist/css/bootstrap.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Навигациско мени -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Евиденција</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Почетна</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/">Внес на табличка</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/">Историја</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Пушти ја камерата</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Главна содржина -->
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Систем за евиденција на регистарски таблички</h1>
+        <p class="lead">Следење и чување на податоци за возила кои влегуваат</p>
+    </div>
+</header>
+
+<section class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2>Како функционира?</h2>
+            <p class="fs-5">
+                Системот овозможува автоматско или рачно снимање на регистарските таблички на сите возила што влегуваат
+                во контролирана зона. Сите влезови се евидентираат со точен датум и време.
+            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">✔️ Автоматско препознавање на таблички</li>
+                <li class="list-group-item">✔️ Преглед на историја на влезови</li>
+                <li class="list-group-item">✔️ Филтрирање по датум и време</li>
+                <li class="list-group-item">✔️ Експорт на извештаи</li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/ANPR_camera.jpg/640px-ANPR_camera.jpg"
+                 class="img-fluid rounded shadow mt-3" alt="ANPR камера">
+            <p class="text-muted mt-2"><small>Пример од камера за препознавање на таблички</small></p>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+        <p class="mb-0">© 2025 Евиденција на Таблички. Сите права се задржани.</p>
+    </div>
+</footer>
+
+<script src="{% static 'bootstrap-5.3.7-dist/js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

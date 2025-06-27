@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 import Aplication.views
 
@@ -23,4 +25,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('start-camera/', Aplication.views.start_camera, name='start_camera'),
     path('', Aplication.views.index, name='index'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
