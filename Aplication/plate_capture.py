@@ -1,15 +1,12 @@
 from threading import Event
+from django.utils import timezone
 import time
-from datetime import datetime
-from sympy import false
-
-from Aplication.models import Evidencija
-import cv2
-from Aplication.models import Plate
-from .pleatReader import detect_plate_and_read_text
 
 stop_event = Event()
 def start_camera_loop():
+    import cv2
+    from Aplication.models import Plate
+    from .plate_reader import detect_plate_and_read_text
 
     cap = cv2.VideoCapture(0)
     first=True
@@ -25,17 +22,13 @@ def start_camera_loop():
             break
 
         plate_text = detect_plate_and_read_text(frame)
-        # pleat = Plate.objects.filter(plate_number=plate_text).first()
-        # # Plate.objects.create(plate_number=plate_text)
-        # if pleat is not None:
-        #     # табличката постои во базата
-        #     Evidencija.objects.create(
-        #         pleat=pleat,
-        #         time=datetime.now().time(),
-        #         date=datetime.now().date()
-        #     )
-        # else:
-        #     # табличката не постои
+
+#TODO: treba da proveri dali ja ima vo baza
+        # ako ja ima da pravi nesto i
+        # da zapise prisustvo vo drug model
+        # so ova https://www.w3schools.com/nodejs/nodejs_raspberrypi_led_pushbutton.asp
+        # ce napravime da dava signal ili semafor crveno i zeleno ja ce sredam za ova
+
 
         if plate_text and len(plate_text) > 4:
             print("Табличка:", plate_text)
@@ -43,14 +36,13 @@ def start_camera_loop():
             if first:
                 first=False
                 last=plate_text
-            elif(last!=plate_text):
+            elif last!=plate_text:
                 last = plate_text
                 Plate.objects.create(plate_number=plate_text)
                 print("Ново различно:", plate_text)
             else:
-                Plate.objects.filter(plate_number=plate_text).update(plate_text)
-
-
+                Plate.objects.filter(plate_number=plate_text).update(plate_number=plate_text)
+                # print("Исто како последното:", plate_text)
 
         time.sleep(3)# ovde menuvas kolku brzo da fati slika
 
@@ -58,5 +50,3 @@ def start_camera_loop():
 
     cap.release()
     cv2.destroyAllWindows()
-
-# start_camera_loop()

@@ -24,5 +24,6 @@ import Aplication.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('start-camera/', Aplication.views.start_camera, name='start_camera'),
-    path('', Aplication.views.index, name='index'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('stop-camera/', Aplication.views.stop_camera, name='stop_camera'),
+    path('', Aplication.views.index2, name='index2'),
+]
